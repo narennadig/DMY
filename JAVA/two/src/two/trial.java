@@ -1,6 +1,7 @@
 package two;
 import java.util.*;
 import java.io.*;
+
 public class trial {
 	static ArrayList<String[]>data=new ArrayList<>();
 	public static void replace(int x,String y)
@@ -31,33 +32,27 @@ public class trial {
 		String f=Double.toString(avg/total);
 		replace(0,f);
 			
-		System.out.println(avg);
-		System.out.println(total);
-		
-		//for(String []line:data) {
-		//	System.out.println(line[0]);
-		//}
+	
 		HashMap<String,Integer>a1=new HashMap<>();
 		for(String []line:data) {
-			if(a1.containsKey(line[1])) {
+			if(!(a1.containsKey(line[1]))) {
+				a1.put(line[1], 1);
+			}
+			else {
 				int temp=a1.get(line[1]);
 				a1.put(line[1], temp+1);
 			}
-			else
-			{
-				a1.put(line[1], 1);
-			}
 			
 		}
-		String mode="";
 		int max=0;
-		for(String key:a1.keySet()) {
-			if(a1.get(key)>max) {
-				max=a1.get(key);
-				mode=key;
-				
-			}
+		String mode="";
+		
+		for(String a:a1.keySet()) {
 			
+			if(a1.get(a)>max) {
+				max=a1.get(a);
+				mode=a;
+			}
 		}
 		replace(1,mode);
 		for(String []line:data) {
@@ -67,8 +62,8 @@ public class trial {
 			}
 			System.out.println();
 		}
-		
-		
+	}
+	}
 		
 			
 		
@@ -78,9 +73,3 @@ public class trial {
 		
 		
 		
-		
-		
-
-	}
-
-}
